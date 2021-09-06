@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="../libraries/leaflet-search/leaflet-search.css">
+    <script type="module" src="../libraries/leaflet-search/leaflet-search.js"></script>
+    <script type="module" src="../modules/streetmap.js"></script>
+    <link rel="stylesheet" href="../stylesheets/streetmap.css">
+    <script src="https://cdn.jsdelivr.net/npm/graphhopper-js-api-client/dist/graphhopper-client.js"></script>
+
+    <script type="text/javascript" src="../modules/graphhopper-client.js"></script>
+    <script type="text/javascript" src="../modules/bouncemarker.js"></script>
+
+    <!-- OLC -->
+    <script src="../libraries/open-location-code/openlocationcode.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../libraries/jquery-cookie-master/src/jquery.cookie.js"></script>
+
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom files -->
+    <script src="../javascripts/youtubeBrowser.js"></script>
+    <script src="../javascripts/voice.js"></script>
+    <script type="module" src="../javascripts/map.js"></script>
+    <link rel="stylesheet" href="../stylesheets/map.css">
+    <script async defer src="https://apis.google.com/js/client.js?onload=initYouTube"></script>
+
+    <title>Mappa</title>
+</head>
+
+<body>
+    <!-- Modale Playlist -->
+    <div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Video Already Played</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="corpo" class="text-center"></div>
+                    <p id="noVideo" class="text-center">You haven't played any clips yet</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale Preferenze -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Preferences</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p id="spieg">The clips displayed will change based on your choices</p>
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;">
+
+                    <label>
+                        <h5>Language</h5><select name="scelta" id="Lingua">
+                            <option value="ita">Italiano</option>
+                            <option value="eng" selected>English</option>
+                            <option value="deu">Deutsch</option>
+                            <option value="fra">Français</option>
+                            <option value="esp">Español</option>
+                        </select>
+                    </label>
+
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;">
+
+                    <h5>Content</h5>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="none">
+                        <label class="form-check-label">None</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="art">
+                        <label class="form-check-label">Art</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="his">
+                        <label class="form-check-label">History</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="flk">
+                        <label class="form-check-label">Folklor</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="mod">
+                        <label class="form-check-label">Modern Culture</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="rel">
+                        <label class="form-check-label">Religion</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="cui">
+                        <label class="form-check-label">Food and Drink</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="spo">
+                        <label class="form-check-label">Sport</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="mus">
+                        <label class="form-check-label">Music</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="mov">
+                        <label class="form-check-label">Movies</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="fas">
+                        <label class="form-check-label">Fashion</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="shp">
+                        <label class="form-check-label">Shopping</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="tec">
+                        <label class="form-check-label">Tech</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="pop">
+                        <label class="form-check-label">Pop Culture and Gossip</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="prs">
+                        <label class="form-check-label">Personal Experiences</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="nat">
+                        <label class="form-check-label">Nature</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Contenuto" value="oth">
+                        <label class="form-check-label">More</label>
+                    </div>
+
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;">
+
+                    <h5>Audience</h5>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Pubblico" value="Agen">
+                        <label class="form-check-label">Generic Audience</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Pubblico" value="Apre">
+                        <label class="form-check-label">Pre-School</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Pubblico" value="Aelm">
+                        <label class="form-check-label">Primary School</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Pubblico" value="Amid">
+                        <label class="form-check-label">Middle School</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Pubblico" value="Alic">
+                        <label class="form-check-label">High School</label>
+                    </div>
+                    <div class="form-check form-check-inline preferenza">
+                        <input class="form-check-input" type="checkbox" name="Pubblico" value="Ascl">
+                        <label class="form-check-label">Specialist</label>
+                    </div>
+
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;">
+
+                    <h5>Directions</h5>
+                    <div class="form-check form-check-inline percorso">
+                        <input class="form-check-input" type="radio" name="Percorso" value="foot" checked>
+                        <label class="form-check-label">Walk</label>
+                    </div>
+                    <div class="form-check form-check-inline percorso">
+                        <input class="form-check-input" type="radio" name="Percorso" value="bike">
+                        <label class="form-check-label">Bike</label>
+                    </div>
+                    <div class="form-check form-check-inline percorso">
+                        <input class="form-check-input" type="radio" name="Percorso" value="car">
+                        <label class="form-check-label">Car</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal"
+                            onclick="filterAndNear()">Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fine Modali-->
+
+    <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <button id="mic" onclick="speechRecognition()"><i class="material-icons">mic</i></button>
+        <div class="dropdown">
+            <a id="where" class="btn btn-link dropdown-toggle navbar-brand" href="#" role="button" id="dropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 150%">
+                Where M I?
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <!-- Button trigger modal Filtri-->
+                <button class="m dropdown-item text-center" data-toggle="modal" data-target="#exampleModal1" style="outline: none">Preferences
+                </button>
+
+                <hr>
+                <!-- Button trigger modal Playlist -->
+                <button type="button" class="m dropdown-item text-center" data-toggle="modal"
+                    data-target="#exampleModa2" onclick="insertInPlaylist()" style="outline: none">
+                    Video Already Played
+                </button>
+
+                <hr>
+                <form class="text-center">
+                    <p style="margin-bottom: 0.5em; font-size: 19.2px;">Site Language</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input setLang" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="ita">
+                        <label class="form-check-label" for="inlineRadio1">ITA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input setLang" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="eng" checked>
+                        <label class="form-check-label" for="inlineRadio2">ENG</label>
+                    </div>
+                </form>
+
+                <hr style="margin-bottom: 10%">
+                <a class="m dropdown-item text-center"
+                    onclick="openInNewTab('https://site181903.tw.cs.unibo.it/en/about')" >About</a>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button id="editor" class="btn btn-warning" type="button"
+                onclick="openInNewTab('https://site181903.tw.cs.unibo.it/login')">
+                <b>Go to Editor!</b>
+            </button>
+            <button id="navigationButton" type="button"><i class="material-icons">navigation</i></button>
+        </div>
+    </nav>
+
+
+    <div id="player" type="text/html"
+        src="https://www.youtube.com/embed/M7lc1UVf-VE?rel=0&enablejsapi=1&origin=https://site181903.tw.cs.unibo.it"
+        frameborder="0"></div>
+
+
+    <div id="containerPercorso" class="container">
+        <div class="media">
+            <img src="../images/route.png" class="mr-3" alt="route" width="30" height="30">
+            <div class="media-body">
+                <h5 class="mt-0">Routes</h5>
+            </div>
+        </div>
+        <div id="instructions"></div>
+    </div>
+
+    <div id="snackbar"></div>
+
+
+    <div id="routing" class="tab-content">
+
+        <div id="map" class="fullscreen"></div>
+        <div id="dark-overlay" class="fullscreen"></div>
+
+    </div>
+
+
+
+    <!-- Tasto Azioni -->
+    <div id="buttonAction" class="dropup btn-group">
+        <button id="action" href="#" class="dropdown btn-warning" data-toggle="dropdown"><i id="centro"
+                class="material-icons">filter_list</i><b class="caret"></b></button>
+
+        <ul class="dropdown-menu dropdown-menu-center">
+            <div class="row text-center">
+                <li id="prevBut" class="col act" onclick="previous()"><img src="../images/back.png" width="50" height="50"
+                        title="Previous">
+                    <p class="azioni">Previous</p>
+                </li>
+                <li class="divider"></li>
+                <li class="col act" onclick="whereMI()"><img id="whereMI" src="../images/voice-search.png" width="50"
+                        height="50" title="Where Am I?">
+                    <p class="azioni">WhereMI?</p>
+                </li>
+                <li class="divider"></li>
+                <li class="col act" onclick="pause()"><img src="../images/pausa.png" width="50" height="50" title="Stop">
+                    <p class="azioni">Stop</p>
+                </li>
+                <li class="divider"></li>
+                <li class="col act" onclick="more()"><img src="../images/more.png" width="50" height="50" title="More">
+                    <p class="azioni">More</p>
+                </li>
+                <li class="divider"></li>
+                <li class="col act" onclick="continueAction()"><img src="../images/continue.png" width="50" height="50"
+                        title="Continue">
+                    <p class="azioni">Continue</p>
+                </li>
+                <li class="divider"></li>
+                <li id="nextBut act" class="col" onclick="next()" id="navigator"><img src="../images/next.png" width="50" height="50"
+                        title="Next">
+                    <p class="azioni">Next</p>
+                </li>
+                <li class="divider"></li>
+                <li class="col"><a onclick="openInNewTab('https://site181903.tw.cs.unibo.it/en/information');">
+                        <img src="../images/info.png" width="50" height="50" title="Informazioni">
+                        <p class="azioni">Info</p>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script async defer src="https://apis.google.com/js/client.js?onload=initYouTube"></script>
+
+
+    <script>
+        function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
+        $(document).ready(async function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/en");
+            }
+        });
+
+        $("input:radio[name=inlineRadioOptions]").on('change', function () {
+                if ($("input:radio[name=inlineRadioOptions]:checked").val() === "ita") {
+                    window.location.replace("https://site181903.tw.cs.unibo.it/");
+                }
+            });
+    </script>
+
+</body>
+
+</html>

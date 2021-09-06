@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom files -->
+    <link rel="stylesheet" href="../stylesheets/infoazioni.css">
+
+    <title>Action</title>
+</head>
+
+<body background="../images/sfondo_bologna.jpg">
+    <h1 id="titolo">WHERE M I?</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <div id="primoContainer" class="container">
+            <i id="icona" class="material-icons">filter_list</i>
+            <h2> &nbsp;ACTION</h2>
+        </div>
+        <p id="intro">This page will explain you the behavior of the buttons <b><i>ACTION</i></b>:</p>
+
+        <div class="media">
+            <img src="../images/back.png" class="mr-3" alt="precedente" width="55" height="55">
+            <div class="media-body">
+                <h5 class="mt-0">Previous</h5>
+                The system re-selects the previous location and if you are not there
+                neighbors plays a clip that says to reach the place indicated on the map.
+            </div>
+        </div>
+        <div class="media">
+            <img src="../images/voice-search.png" class="mr-3" alt="where am i?" width="55" height="55">
+            <div class="media-body">
+                <h5 class="mt-0">Where Am I?</h5> 
+                Depending on where you are, the system will play the first clip on that location
+                (Only purpose WHAT <img src="../images/clipMarkerWhat.png" width="30" height="30">).
+            </div>
+        </div>
+        <div class="media">
+            <img src="../images/pausa.png" class="mr-3" alt="pausa" width="55" height="55">
+            <div class="media-body">
+                <h5 class="mt-0">Stop</h5>  
+                The system stops playback.
+            </div>
+        </div>
+        <div class="media">
+            <img src="../images/more.png" class="mr-3" alt="altro" width="55" height="55">
+            <div class="media-body">
+                <h5 class="mt-0">More</h5>
+                The system plays the next clip in the list on the same place to visit
+                (Only purpose WHY <img src="../images/clipMarkerWhy.png" width="30" height="30">
+                and purpose HOW <img src="../images/clipMarkerHow.png" width="30" height="30">).
+            </div>
+        </div>
+        <div class="media">
+            <img src="../images/continue.png" class="mr-3" alt="continua" width="55" height="55">
+            <div class="media-body">
+                <h5 class="mt-0">Continue</h5>
+                The system resumes playing.
+            </div>
+        </div>
+        <div class="media">
+            <img src="../images/next.png" class="mr-3" alt="prossimo" width="55" height="55">
+            <div class="media-body">
+                <h5 class="mt-0">Next</h5>
+                The system chooses the next place to visit and if you are not there
+                neighbors plays a clip that says to reach the place indicated on the map.
+            </div>
+        </div>
+
+        <p class="fine">Press the following button to return to the map! &#128515;</p>
+        <form class="fine" method="post">
+            <input id="closeButton" type="button" class="btn btn-warning" value="Chiudi Finestra"
+                onclick="window.close()">
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/informazioni");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

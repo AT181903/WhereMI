@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Custom files -->
+    <script src="../javascripts/login.js"></script>
+    <link rel="stylesheet" href="../stylesheets/login.css">
+
+    <!-- YouTube -->
+        <meta name="google-signin-clientid"
+          content="/* Add Client ID */"/>
+
+    <title>Where M I?</title>
+</head>
+
+<body>
+    <h1>WHERE M I?</h1> 
+    <div id="primoContainer" class="container">
+        <div id="secondoContainer" class="container">
+            <p class="scritta">Per poter utilizzare questa applicazione devi avere un account Google:</p>
+            <small>
+                <p id="piccolo">Se non ne hai uno puoi anche registrarti dal tasto che segue!</p>
+            </small>
+            <div id="signGoogle"></div>
+            <hr id="g">
+            <div id="terzoContainer" class="container">
+                <button id="go" type="button" class="btn btn-warning"
+                    onclick="openInNewTab('https://site181903.tw.cs.unibo.it/about')"><b>About</b></button>
+                <p class="scritta">Premi About per leggere informazioni su questa applicazione.
+                </p>
+            </div>
+            <hr id="l">
+            <div id="terzoContainer" class="container">
+                <button id="go" type="button" class="btn btn-warning"
+                    onclick="window.close()"><b>MAP</b></button>
+                <p class="scritta">Per tornare alla mappa premi il pulsante MAP.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+         function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/login");
+            }
+        });
+    </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+
+</html>

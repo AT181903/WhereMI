@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Material icon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom files -->
+    <script type="text/javascript" src="../javascripts/editor.js"></script>
+    <link rel="stylesheet" href="../stylesheets/editor.css">
+
+    <!-- YouTube -->
+    <script src="https://apis.google.com/js/client.js"></script>
+    <meta name="google-signin-clientid"
+        content="/* Add Client ID */" />
+    <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+    <meta name="google-signin-callback" content="signinCallback" />
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
+
+
+
+    <title>Editor</title>
+</head>
+
+<body>
+
+    <div id="Account" class="btn-group">
+        <button id="buttonAccount" type="button" class="btn btn-link dropdown" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img id="btn" class="img-circle" width="40" height="40" /></button>
+        <form id="drop" class="dropdown-menu dropdown-menu-right">
+            <div class="form-group" style="float: right; margin-bottom: 0px;">
+                <p id="nome"></p>
+                <a id="signOut" class="btn btn-link">Esci</a>
+            </div>
+        </form>
+    </div>
+
+    <h1 id="titolo">Where M I?</h1>
+
+    <div class="jumbotron">
+        <div id="primoContainer" class="container">
+            <h2>Editor</h2>
+            <p id="descrizione">Da questa pagina potrai creare contenuti e renderli visibili a tutti!</p>
+        </div>
+
+        <div id="deck" class="card-deck text-center">
+            <div class="card">
+                <a href="https://site181903.tw.cs.unibo.it/creaclip"><img class="card-img-top"
+                        src="../images/crea_clip.png" alt="Card image cap" width="200" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">Crea Clip Audio</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://site181903.tw.cs.unibo.it/playlist"><img class="card-img-top"
+                        src="../images/playlist.png" alt="Card image cap" width="200" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">Playlist Audio</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://site181903.tw.cs.unibo.it/caricati"><img class="card-img-top"
+                        src="../images/clip_caricate.png" alt="Card image cap" width="200" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">Clip Caricate</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <button id="returnMap" class="btn btn-info" onclick="window.close()">Torna alla mappa!</button>
+            </div>
+            <div class="col">
+                <button id="infoEditor" class="btn btn-info"
+                    onclick="openInNewTab('https://site181903.tw.cs.unibo.it/infoEditor')">Info
+                    Editor</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/editor");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()">
+    </script>
+</body>
+
+</html>

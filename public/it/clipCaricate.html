@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Custom files -->
+    <script type="text/javascript" src="../javascripts/videoCaricati.js"></script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/clipCaricate.css">
+
+    <title>Clip caricate</title>
+</head>
+
+<body>
+
+    <h1>Clip Caricate<img src="../images/youtube.png" width="80" height="70" style="margin-left: 0.2em;"></h1>
+
+    <div id="ifNoVideo" style="font-size: 1.5em; color: white;">Non ci sono video su questo canale</div>
+
+    <div class="text-center">
+        <img id="loader" src="../images/loader1.gif" type="gif" width="200" height="200">
+    </div>
+
+    <div id="primoContainer" class="container-fluid">
+        <div class="row" id="contentPanel"></div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/caricati");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+</body>
+
+</html>

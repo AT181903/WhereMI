@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Custom files -->
+    <link rel="stylesheet" href="../stylesheets/about.css">
+
+    <title>Where M I?</title>
+</head>
+
+<body bgcolor=”#FFFFFF” background="../images/sfondo_bologna.jpg">
+    <h1 id="titolo"><b>WHERE M I?</b></h1>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+            <h3 id="autori">Developer:</h3>
+            <div class="row">
+                <div class="col-sm-3 text-center">
+                    <img class="avatar" src="../images/server_side.png" alt="avatar server"
+                        style="width: 100px; height: 100px;"></img>
+                    <figcaption class="figure-caption text-center"><b>
+                            <p class="nomi"> Silvano Carradori
+                                <hr>
+                                Computer Science
+                                <hr>
+                                Server Side/Client Side/Directions
+                        </b></p>
+                    </figcaption>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <img class="avatar" src="../images/css.png" alt="avatar css"
+                        style="width: 100px; height: 100px;"></img>
+                    <figcaption class="figure-caption text-center"><b>
+                            <p class="nomi"> Giulio Augello
+                                <hr>
+                                Computer Science
+                                <hr>
+                                HTML/CSS/Youtube Api
+                        </b></p>
+                    </figcaption>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <img class="avatar" src="../images/Javascript.png" alt="avatar js"
+                        style="width: 100px; height: 100px;"></img>
+                    <figcaption class="figure-caption text-center"><b>
+                            <p class="nomi">Alberto Fabbri
+                                <hr>
+                                Single Course
+                                <hr>
+                                Leaflet.js/Registration/Geolocation
+                        </b></p>
+                    </figcaption>
+                </div>
+                <div class="col-sm-3 text-center">
+                    <img class="avatar" src="../images/Javascript.png" alt="avatar js"
+                        style="width: 100px; height: 100px;"></img>
+                    <figcaption class="figure-caption text-center"><b>
+                            <p class="nomi">Antonio Fiore
+                                <hr>
+                                Computer Science
+                                <hr>
+                                Modify Video
+                        </b></p>
+                    </figcaption>
+                </div>
+                
+            </div>
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            <h3>Information:</h3>
+            <div class="clearfix">
+                <img src="../images/Logo_Uni.png" alt="logo unibo" class="float-left pull-left mr-2"
+                    style="width: 45px; height: 45px;">
+                <p id="info">Project for the Web Technologies course of the University of Bologna by Prof. Fabio Vitali
+                    <a href="http://vitali.web.cs.unibo.it/" target="_blank">(Teacher website)</a>.</p>
+            </div>
+            <hr id="secondohr" style="height:1px;border:none;color:#333;background-color:#333;" />
+            <h3>What is <b><i>"Where M I?"</i></b> ?</h3>
+            <div class="spiegazione">
+                <p id="descrizione">
+                    "Where M I?" is a couple of apps, which give an agile and free way to quickly find audio guides on the web.
+                    "Where M I?" has two apps for two types of users:</p>
+                <ul>
+                    <li type="circle"><b><i>Guides</i></b>: real influencer, vlogger who will post video guides for free on the web!
+                    </li>
+                    <li type="circle"><b><i>Tourists</i></b>: looking for advice, culture, leisure,
+                        premises, etc ..
+                    </li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-warning" onclick="window.close()">Return to Map!</button>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/about");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

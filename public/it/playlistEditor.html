@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Custom files -->
+    <script src="../javascripts/playlistCaricate.js"></script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/playlistEditor.css">
+
+    <title>Playlist Editor</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-dark">
+        <button id="create" type="button" class="btn btn-light" data-toggle="modal" data-target="#createModal">Nuova
+            Playlist</button>
+        <p style="font-size: 1.3em; color: white;">PLAYLIST</p>
+    </nav>
+
+    <p id="ifNoPlaylist" style="font-size: 2em; color: white;" class="text-center">Non ci sono playlist su questo canale
+    </p>
+
+    <div class="text-center">
+        <img id="loader" src="../images/loader1.gif" type="gif" width="200" height="200">
+    </div>
+
+    <!-- Modale Creazione Playlist -->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Nuova Playlist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="nomePlaylist">Nome Playlist</label>
+                            <input class="form-control" id="nomePlaylist" aria-describedby="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descrPlaylist">Descrizione Playlist</label>
+                            <input class="form-control" id="descrPlaylist" aria-describedby="descrizione">
+                        </div>
+                        <div class="form-group">
+                            <label for="visibilitaFormControlSelect1">Visibilità</label>
+                            <select class="custom-select" id="visibilitaFormControlSelect1">
+                                <option>Privato</option>
+                                <option>Pubblico</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                        <button type="submit" class="btn btn-primary" onclick="createPlaylist()">Crea</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="secondoContainer" class="container-fluid">
+        <div class="row" id="Pannello"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/playlist");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="../libraries/leaflet-search/leaflet-search.css">
+    <script type="module" src="../libraries/leaflet-search/leaflet-search.js"></script>
+
+    <!-- OLC -->
+    <script src="../libraries/open-location-code/openlocationcode.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Barra ricerca -->
+    <script src="../modules/L.Control.OpenCageSearch.dev.js"></script>
+    <link rel="stylesheet" href="../stylesheets/L.Control.OpenCageSearch.dev.css">
+
+    <!-- Fix MediaRecorder macOS/iOS -->
+    <script src="../libraries/opus-recorder/recorder.min.js"></script>
+
+    <!-- Custom files -->
+    <script src="../modules/cors_upload.js"></script>
+    <script type="module" src="../javascripts/creaclip.js"></script>
+    <script type="text/javascript" src="../javascripts/uploadYoutube.js"></script>
+    <link rel="stylesheet" href="../stylesheets/creaclip.css">
+    <link rel="stylesheet" href="../stylesheets/streetmap.css">
+    <script type="module" src="../modules/streetmap.js"></script>
+    <script type="text/javascript" src="../javascripts/creaclipYoutube.js"></script>
+
+    <!-- YouTube -->
+    <meta name="google-signin-clientid"
+          content="/* Add Client ID */"/>
+    <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+    <meta name="google-signin-callback" content="signinCallback" />
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
+
+    <title>Crea Clip</title>
+</head>
+
+<body>
+    <div id="map" class="fullscreen"></div>
+
+
+
+    <!--Start Modal-->
+    <div class="modal fade" id="recClipModal" tabindex="-1" role="dialog" aria-labelledby="recModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div id="modaleClip" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recModalLabel">Crea Clip</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <!--Start Nav-->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="rec-tab" data-toggle="tab" href="#rec" role="tab"
+                                aria-controls="rec" aria-selected="true">Registra Clip</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="videoR-tab" data-toggle="tab" href="#videoR" role="tab"
+                                aria-controls="videoR" aria-selected="false">Video Gi&agrave; Registrato</a>
+                        </li>
+                    </ul>
+
+
+
+                    <!--Content of Nav-->
+                    <div class="tab-content" id="myTabContent">
+
+                        <!--First content of Nav-->
+                        <div class="tab-pane fade show active" id="rec" role="tabpanel" aria-labelledby="rec-tab">
+
+                            <div id="registration">
+
+                                <div class="text-center" id="startClose">
+                                    <img src="../images/microfono.png" id="startRecording" width="150" height="150">
+
+                                    <div class="wrapper" id="recordingInProgress">
+                                        <div class="staticCircle"></div>
+                                        <div class="staticCircle md"></div>
+                                        <div class="staticCircle lg"></div>
+                                        <div class="staticCircle circle"></div>
+                                    </div>
+
+                                    <br>
+                                    <p id="ferma">Premi di nuovo per chiudere la registrazione</p>
+                                    <!--<button class="btn btn-primary" id="recordingInProgress"> Clicca di nuovo per terminare la
+                                    registrazione</button>-->
+                                </div>
+
+                                <div id="clipRecorded">
+                                    <p class="noGood"><b>Se vuoi puoi riascoltare la clip</b></p>
+                                    <div class="container" id="audioContainer">
+                                        <audio controls id='audioControls'></audio>
+                                    </div>
+                                    <p class="noGood"><b>Se non ti piace:</b></p>
+                                    <div class="row justify-content-around">
+                                        <button id="modify" type="button" class="col-4 btn btn-primary"
+                                            data-toggle="modal" data-target="#modModal" data-backdrop="static"
+                                            data-keyboard="false">
+                                            Modifica la clip</button>
+                                        <button class="col-4 btn btn-primary" id='newClip'>Registra una nuova
+                                            clip</button>
+                                    </div>
+                                </div>
+
+                                <form>
+                                    <label for="titolo">Titolo</label>
+                                    <input id="titolo" class="form-control mb-2" type="text" placeholder="Inserisci il Titolo della Clip">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <label for="langRegistration">Lingua:</label>
+                                            <select class="form-control" name="lang" id="langRegistration">
+                                                <option value="ita" selected>Italiano</option>
+                                                <option value="eng">English</option>
+                                                <option value="deu">Deutsch</option>
+                                                <option value="fra">Français</option>
+                                                <option value="esp">Español</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <label for="purpRegistration">Scopo:</label>
+                                            <select class="form-control" name="purpose" id="purpRegistration"
+                                                onclick="registration()">
+                                                <option value="what">What</option>
+                                                <option value="how">How</option>
+                                                <option value="why">Why</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <label for="catRegistration">Categoria:</label>
+                                            <select class="form-control" name="content" id="catRegistration">
+                                                <option value="none">Nessuna</option>
+                                                <option value="nat">Natura</option>
+                                                <option value="art">Arte</option>
+                                                <option value="his">Storia</option>
+                                                <option value="flk">Folklore</option>
+                                                <option value="mod">Cultura moderna</option>
+                                                <option value="rel">Religione</option>
+                                                <option value="cui">Cucina e drink</option>
+                                                <option value="spo">Sport</option>
+                                                <option value="mus">Musica</option>
+                                                <option value="mov">Film</option>
+                                                <option value="fas">Moda</option>
+                                                <option value="shp">Shopping</option>
+                                                <option value="tec">Tecnologia</option>
+                                                <option value="pop">Cult. pop. e gossip</option>
+                                                <option value="prs">Esperienze personali</option>
+                                                <option value="oth">Altro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <label for="pubblicoRegistration">Pubblico:</label>
+                                            <select class="form-control" name="content" id="pubblicoRegistration">
+                                                <option value="gen">Pubblico generico</option>
+                                                <option value="pre">Pre-scuola</option>
+                                                <option value="elm">Scuola primaria</option>
+                                                <option value="mid">Scuola media</option>
+                                                <option value="scl">Specialisti del settore</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <label for="privacy-statusRegistration">Visibilità:</label>
+                                            <select class="form-control" name="status" id="privacy-statusRegistration">
+                                                <option value="public">Pubblico</option>
+                                                <option value="private">Privato</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12" id="detailLabel">
+                                            <label for="dettaglioRegistration">Dettaglio:</label>
+                                            <select class="form-control" name="dettaglio" id="dettaglioRegistration">
+                                                <option value="P1">1</option>
+                                                <option value="P2">2</option>
+                                                <option value="P3">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <button type="button" class="btn btn-primary" id="UploadButton"
+                                                disabled>Carica Clip</button>
+                                        </div>
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <img id="loaderYTRegistration" src="../images/loaderYoutube.gif" width="50"
+                                                height="auto">
+                                        </div>
+                                        <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                            <p id="videoCaricatoRegistration">Video Caricato</p>
+                                            <p id="videoErrorRegistration">Errore</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!--Second content of Nav-->
+                        <div class="tab-pane fade" id="videoR" role="tabpanel" aria-labelledby="profile-tab">
+
+                            <div id="uploadFile">
+
+                                <div id="uploader">
+
+                                    <div class="custom-file" id="F">
+                                        <label class="custom-file-label" for="file">File</label>
+                                        <input type="file" id="file" class="custom-file-input button" accept="video/*">
+                                    </div>
+
+                                    <form>
+                                        <div class="row">
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                                <label for="langFile">Lingua</label>
+                                                <select class="custom-select" id="langFile">
+                                                    <option value="ita" selected>Italiano</option>
+                                                    <option value="eng">English</option>
+                                                    <option value="deu">Deutsch</option>
+                                                    <option value="fra">Français</option>
+                                                    <option value="esp">Español</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                                <label for="purpFile">Scopo</label>
+                                                <select class="custom-select" id="purpFile" onclick="file()">
+                                                    <option value="what" selected>What</option>
+                                                    <option value="how">How</option>
+                                                    <option value="why">Why</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                                <label for="catFile">Categoria</label>
+                                                <select class="custom-select" id="catFile">
+                                                    <option value="nat" selected>Natura</option>
+                                                    <option value="art">Arte</option>
+                                                    <option value="his">Storia</option>
+                                                    <option value="flk">Folklore</option>
+                                                    <option value="mod">Cultura moderna</option>
+                                                    <option value="rel">Religione</option>
+                                                    <option value="cui">Cucina e drink</option>
+                                                    <option value="spo">Sport</option>
+                                                    <option value="mus">Musica</option>
+                                                    <option value="mov">Film</option>
+                                                    <option value="fas">Moda</option>
+                                                    <option value="shp">Shopping</option>
+                                                    <option value="tec">Tecnologia</option>
+                                                    <option value="pop">Cult. pop. e gossip</option>
+                                                    <option value="prs">Esperienze personali</option>
+                                                    <option value="oth">Altro</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                                <label for="pubblicoFile">Pubblico</label>
+                                                <select class="custom-select" id="pubblicoFile">
+                                                    <option value="gen" selected>Pubblico generico</option>
+                                                    <option value="pre">Pre-scuola</option>
+                                                    <option value="elm">Scuola primaria</option>
+                                                    <option value="mid">Scuola media</option>
+                                                    <option value="scl">Specialisti del settore</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                                <label class="my-1 mr-2" for="privacy-statusFile">Visibilità</label>
+                                                <select class="custom-select my-1 mr-sm-2" id="privacy-statusFile">
+                                                    <option value="public" selected>Pubblico</option>
+                                                    <option value="private">Privato</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12" id="detailDiv">
+                                                <label class="my-1 mr-2" for="dettaglioFile">Dettaglio</label>
+                                                <select class="custom-select my-1 mr-sm-2" id="dettaglioFile">
+                                                    <option value="P1" selected>1</option>
+                                                    <option value="P2">2</option>
+                                                    <option value="P3">3</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-12 mt-2">
+                                                <button id="button" class="btn btn-primary">Upload Video</button>
+                                            </div>
+
+                                            <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                                <img id="loaderYTFile" src="../images/loaderYoutube.gif" width="50"
+                                                    height="auto">
+                                                <p id="videoCaricatoFile">Video Caricato</p>
+                                                <p id="videoErrorFile">Errore</p>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button id="returnM" type="button" class="btn btn-info" data-dismiss="modal">Ritorna alla
+                        mappa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modale per Modifica clip-->
+    <div class="modal fade" id="modModal" tabindex="-1" role="dialog" aria-labelledby="modModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div id="modaleModificaClip" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modModalLabel">Modifica Clip</h5>
+                    <button type="button" class="salvaMod close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p style="margin-bottom: 8px;">Inserisci i secondi iniziali e finali della clip</p>
+                    <form>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="number" class="form-control" id="startSecond" placeholder="Inizio" value="">
+                            </div>
+                            <div class="col-6">
+                                <input type="number" class="form-control" id="endSecond" placeholder="Fine" value="">
+                            </div>
+                        </div>
+
+                        <label for="volumeSecond">Volume</label>
+                        <input type="range" class="custom-range" min="0" max="4" id="volumeSecond">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" onclick="modifyVideo()" class="salvaMod btn btn-primary" id="salvaModifiche"
+                        data-dismiss="modal">Salva Modifiche</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wholePopup">
+        <button id="recM" class="btn btn-link" type="button" data-toggle="modal" data-target="#recClipModal"
+            data-backdrop="static" data-keyboard="false">Registra<br>clip
+        </button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/creaclip");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script async defer src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
+
+</body>
+
+</html>

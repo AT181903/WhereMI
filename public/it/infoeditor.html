@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Custom files -->
+    <link rel="stylesheet" href="../stylesheets/infoeditor.css">
+
+    <title>Informazioni Editor</title>
+</head>
+
+<body>
+
+    <h1 id="titolo">Where M I?</h1>
+
+    <div class="jumbotron jumbotron-fluid">
+        <h2>Guida alle funzionalit&agrave; dell' Editor!</h2>
+
+        <ul class="list-unstyled">
+            <div class="container-fluid">
+                <li class="media">
+                    <img src="../images/crea_clip.png" class="align-self-start mr-3" alt="crea clip">
+                    <div class="media-body">
+                        <h3 class="mt-0 mb-1">Crea Clip Audio</h3>
+                        <p class="scritta">In questa sezione potrai creare delle clip audio da associare ai luoghi che
+                            preferisci
+                            (tramite la tua posizione o cercando un luogo), oppure caricare un video che hai salvato sul
+                            tuo pc.
+                            <ul>Dovrai accompagnare ogni clip audio con alcune informazioni riguardanti tale clip:
+                                <li><b>Il Titolo</b> della clip;</li>
+                                <li><b>Il Testo</b> della clip;</li>
+                                <li><b>Lo Scopo</b> per il quale è stata registrata la clip, a scelta tra <b>"What",
+                                        "How" e
+                                        "Why"</b>.<br>
+                                    Con <b>"What"</b> indichiamo l'identit&agrave; della location;<br>
+                                    Con <b>"How"</b> indichiamo coma accedere alla location;<br>
+                                    Con <b>"Why"</b> indichiamo perch&eacute; &egrave; interessante parlare di questa
+                                    location.
+                                </li>
+                                <li><b>La Lingua</b> della clip;</li>
+                                <li><b>La Categoria</b> del contenuto della clip (sono selezionabili pi&ugrave;
+                                    categorie);
+                                </li>
+                                <li><b>Il Pubblico</b> al quale si rivolge la clip;</li>
+                                <li><b>Il Livello di Dettaglio</b> della clip (va da 1 a 3).</li>
+                            </ul>
+                        </p>
+                    </div>
+                </li>
+            </div>
+            <div class="container-fluid">
+                <li class="media">
+                    <div class="media-body">
+                        <h3 class="mt-0 mb-1">Playlist Audio</h3>
+                        <p class="scritta">In questa sezione potrai creare nuove playlist, visualizzare quelle
+                            gi&agrave;
+                            create, eliminarle e cambiare la loro visibilit&agrave;.</p>
+                    </div>
+                    <img src="../images/playlist.png" class="align-self-start ml-3" alt="playlist audio">
+                </li>
+            </div>
+            <div class="container-fluid">
+                <li class="media">
+                    <img src="../images/clip_caricate.png" class="align-self-start mr-3" alt="clip caricate">
+                    <div class="media-body">
+                        <h3 class="mt-0 mb-1">Clip Caricate</h3>
+                        <p class="scritta">In questa sezione potrai visualizzare le clip già caricate, cambiare la loro
+                            descrizione
+                            e visibilit&agrave;, ed eliminarle.</p>
+                    </div>
+                </li>
+            </div>
+        </ul>
+        <div class="container">
+            <p class="fine">Premi il pulsante seguente per tornare all' Editor! &#128515;</p>
+            <form class="fine" method="post">
+                <input id="closeButton" type="button" class="btn btn-warning" value="Chiudi Finestra"
+                    onclick="window.close()">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            if (location.protocol === 'https:') {
+                console.log("Pagina sicura");
+            } else {
+                window.location.replace("https://site181903.tw.cs.unibo.it/infoeditor");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
