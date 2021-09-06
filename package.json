@@ -1,0 +1,41 @@
+{
+  "name": "WhereMI",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "node ./testing/server.js",
+    "auto-test": "nodemon ./testing/server.js"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "bcrypt": "^3.0.6",
+    "blueimp-file-upload": "^10.3.0",
+    "cloudinary-core": "^2.7.4",
+    "cloudinary-jquery-file-upload": "^2.7.4",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "favicon": "0.0.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "0.0.1-security",
+    "google-auth-library": "^5.5.1",
+    "http-errors": "~1.6.3",
+    "https": "^1.0.0",
+    "jquery": "^3.4.1",
+    "md5": "^2.2.1",
+    "mongodb": "^3.3.3",
+    "mongoose": "^5.7.9",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "gapi": "0.0.3"
+  }
+}
