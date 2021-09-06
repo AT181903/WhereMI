@@ -1,0 +1,54 @@
+body {
+    background-image: url(../images/sfondo_editor.jpg);
+}
+#uploader{
+    background-color: white;
+}
+.post-sign-in {
+    display: none;
+}
+.during-upload {
+    display: none;
+}
+.post-upload {
+    display: none;
+}
+#percent{
+    margin-bottom: 0%;
+}
+input[type="text"], progress {
+    font-family: "Open Sans", sans-serif;
+}
+h1{
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+.row{
+    padding: 1.5%;
+}
+.column{
+    margin-top: 1em;
+}
+
+
+
+@media screen and (max-width: 991px){
+    #barra{
+        margin-top: 1.3em;
+        padding: 0%;
+    }
+    .custom-file{
+        padding: 0%;
+        margin-top: 0.8em;
+    }
+    .column{
+        padding: 0%;
+        margin-top: 0.5em;
+    }
+    label{
+        font-size: 1.3em;
+    }
+}
+

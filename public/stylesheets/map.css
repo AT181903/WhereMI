@@ -1,0 +1,422 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+/*height 91.5vh, width 100vw*/
+html, body, .fullscreen {
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100 - 64px);
+}
+
+.post-sign-in {
+    display: none;
+}
+
+#map {
+    cursor: default;
+}
+
+#dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: wait;
+    z-index: 2000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.leaflet-popup-content-wrapper {
+    text-align: center;
+}
+
+.leaflet-popup-close-button {
+    display: none;
+}
+
+#recordingPopup {
+    cursor: pointer;
+}
+
+form#containerForm.form-inline.my-2.my-lg-0{
+    width: 30%;
+}
+
+
+/*Colore navbar*/
+.navbar{
+    background-color: #FFC107 !important;
+}
+#editor{
+    border: 1px solid black !important;
+}
+
+
+/*scritta nel modale */
+#spieg{
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #FFC107;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Video dietro alla mappa */
+#player{
+    position: absolute;
+}
+
+
+/* Tasto Editor */
+#editor{
+    transition: background 1s;
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    -o-transition: background 1s;
+    -webkit-box-shadow: none !important;
+    box-shadow: none  !important;
+}
+#editor:hover{
+    background-color: rgb(27, 168, 255);
+    border: rgb(27, 168, 255);
+}
+button#editor.btn.btn-warning{
+    margin-left: 88.5%;
+}
+
+
+/* Tasti a sinistra della navbar */
+#mic{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-right: 1%;
+}
+
+
+/* where am i button */
+hr{
+    margin: 3%;
+}
+.dropdown-item{
+    font-size: 120%;
+}
+.preferenza{
+    padding: 0.5%;
+}
+
+.m:active{
+    background-color: #FFC107;
+}
+
+/*.leaflet-popup-content-wrapper{
+    min-width: 500px!important;
+}*/
+.percorso{
+    margin-bottom: 1.2em;
+}
+
+/*Popup luoghi di interesse*/
+.media-body > div{
+    overflow: auto;
+    padding: 0%;
+    max-height: 200px;
+}
+
+/*Direzioni*/
+#containerPercorso{
+    display: none;
+    max-height: 75%;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 900;
+    border-radius: 5px;
+    top: 15%;
+    left: 82.5%;
+    width: 17%;
+}
+#containerPercorso > .media{
+    margin-bottom: 1.2em;
+    padding: 1em;
+}
+ol{
+    padding-left: 15px;
+}
+ol > li{
+    font-size: 20px;
+}
+#navigationButton{
+    display: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-left: 1.2em;
+}
+
+/* Per tasto azioni in basso */
+#buttonAction{
+    display: inline-block;
+    position: absolute;
+    z-index: 400;
+    top: 90%;
+    left: 49%;
+    width: 50%;
+    border-radius: 0;
+}
+li{
+    display: inline-block;
+}
+#action{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    padding: 0%;
+    outline: none;
+    width: 40px;
+    height: 34px;
+}
+#centro{
+    text-align: center;
+    margin-top: 0.1em;
+}
+.dropdown-menu-center {
+    width: 100%;
+    transform: translate(-47.8%, -100%) !important;
+    border: 1px solid black;
+}
+.azioni{
+    margin: 0 !important;
+}
+li.col, div.col.mt-2{
+    cursor: pointer;
+}
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track { 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #FFC107; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(231, 175, 6); 
+}
+
+/*snackbar clip*/
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: ghostwhite;
+    color: black;
+    border: 2px solid grey;
+    text-align: center;
+    border-radius: 25px;
+    padding: 16px;
+    position: fixed;
+    z-index: 500;
+    left: 50%;
+    top: 70px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;} 
+    to {top: 70px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 70px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {top: 70px; opacity: 1;} 
+    to {top: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {top: 70px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+  }
+
+
+/* media query */
+@media screen and (min-width: 1860px) and (max-width: 2560px){
+    button#editor.btn.btn-warning{
+        margin-left: 87%;
+    }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1860px){
+    button#editor.btn.btn-warning{
+        margin-left: 82%;
+    }
+    #containerPercorso{
+        left: 77.4%;
+        width: 22%;
+    }
+}
+
+@media screen and (min-width: 1221px) and (max-width: 1440px){
+    #containerPercorso{  
+        max-height: 60%;      
+        top: 15%;
+        left: 65%;
+        width: 34.2%;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 78%;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1220px){
+    #containerPercorso{  
+        max-height: 60%;      
+        top: 15%;
+        left: 65%;
+        width: 33.8%;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 73%;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1024px){
+    #containerPercorso{  
+        max-height: 60%;      
+        top: 15%;
+        left: 65%;
+        width: 33.8%;
+    }
+    .dropdown-menu-center {
+        text-align: center;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 71%;
+    }
+}
+
+@media screen and (min-width: 770px) and (max-width: 991px){
+    #containerPercorso{
+        text-align: center;  
+        max-height: 40%;      
+        top: 13.8%;
+        left: 15%;
+        width: 70%;
+    }
+    ol{
+        padding-left: 0px;    
+    }
+    .dropdown-menu-center {
+        text-align: center;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 770px){
+    #containerPercorso{
+        text-align: center;  
+        max-height: 40%;      
+        top: 13.8%;
+        left: 15%;
+        width: 70%;
+    }
+    ol{
+        padding-left: 0px;    
+    }
+    .dropdown-menu-center {
+        text-align: center;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 480px){
+    #containerPercorso{
+        text-align: center;   
+        max-height: 35%;      
+        top: calc(13.8% + 8px);
+        left: 15%;
+        width: 70%;
+    }
+    ol{
+        padding-left: 0px;    
+    }
+    .modal-body{
+        text-align: center;
+    }
+    #simbolo{
+        display: none;
+    }
+    #where{
+        margin-right: 0;
+    }
+    #buttonAction{
+        top: 85%;
+        left: 45%;
+    }
+    .dropdown-menu-center {
+        text-align: center;
+        transform: translate(-40%, -100%) !important;
+        border: 1px solid black;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px){
+    #containerPercorso{
+        text-align: center;   
+        max-height: 35%;      
+        top: calc(13.8% + 36px);
+        left: 15%;
+        width: 70%;
+    }
+    ol{
+        padding-left: 0px;    
+    }
+    .modal-body{
+        text-align: center;
+    }
+    #simbolo{
+        display: none;
+    }
+    #where{
+        margin-right: 0;
+    }
+    #buttonAction{
+        top: 85%;
+        left: 45%;
+    }
+    .dropdown-menu-center {
+        text-align: center;
+        transform: translate(-40%, -100%) !important;
+        border: 1px solid black;
+    }
+    button#editor.btn.btn-warning{
+        margin-left: 0;
+    }
+    li > img, a > img{
+        width: 30px;
+        height: 30px;
+    }
+}

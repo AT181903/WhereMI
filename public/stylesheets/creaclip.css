@@ -1,0 +1,1208 @@
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.leaflet-popup-close-button {
+  display: none;
+}
+#startRecording, #recordingInProgress, #newClip {
+  cursor: pointer;
+}
+
+#startRecording, #recordingInProgress, #clipRecorded {
+  padding: 15px;
+}
+
+.leaflet-popup-content {
+	margin: 0 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+	padding: 1px !important;
+}
+
+.textPopup {
+  white-space: pre;
+}
+
+p{
+  margin-bottom: 0;
+}
+
+.leaflet-popup-content{
+  margin: 1em !important;
+}
+
+#recordingInProgress{
+  display: none;
+}
+
+#clipRecorded{
+  text-align: center;
+  display: none;
+}
+
+#detailLabel{
+  display: none;
+}
+
+#detailDiv{
+  display: none;
+}
+audio, .noGood{
+  margin-bottom: 3%;
+}
+#wholePopup{
+  text-align: center;
+}
+#startClose{
+  margin-bottom: 1%;
+}
+label{
+  margin-bottom: 5px;
+}
+#startRecording{
+  border: solid 3px blue;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+#ferma{
+  display: none;
+  background-color: yellow;
+  font-weight: bold;
+}
+#F{
+  margin-top: 10px;
+  margin-bottom: 10px;  
+}
+#audioControls{
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#loaderYTFile, #loaderYTRegistration, #videoErrorFile, #videoErrorRegistration, #videoCaricatoRegistration, #videoCaricatoFile{
+  display: none;
+}
+
+.row.justify-content-around > button{
+  font-size: 12px;
+}
+
+/*iframe{
+  padding: 1.3em;
+}*/
+
+#startSecond, #endSecond{
+  width: 100%;
+}
+
+/*Animazione Registrazione Clip*/
+.wrapper{
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.staticCircle {
+  position: absolute;
+  top: 50px;
+  left: 132%;
+  border-radius: 50%;
+  border: 2px solid blue;
+  width: 70px;
+  height: 70px;
+}
+.staticCircle.md {
+  width: 110px;
+  height: 110px;
+  top: 30px;
+  left: 119%;
+}
+.staticCircle.lg {
+  width: 150px;
+  height: 150px;
+  top: 10px;
+  left: 106%;
+}
+
+.circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid red;
+  animation: recording 2s infinite linear;
+  -moz-animation: recording 2s infinite linear;
+  -webkit-animation: recording 2s infinite linear;
+}
+.modal-body{
+  padding: 12px;
+}
+
+@keyframes recording {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  100% {
+      -moz-transform: rotate(360deg);
+  }
+  0% {
+    width: 70px;
+    height: 70px;
+  }
+
+  50% {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 119%;
+  }
+
+  100% {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 106%;
+  }
+}
+
+@-moz-keyframes recording {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes recording {
+  0% {
+    width: 70px;
+    height: 70px;
+  }
+  
+  50% {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 119%;
+  }
+
+  100% {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 106%;
+  }
+}
+
+/*Media query*/
+@media screen and (min-width: 480px) and (max-width: 550px){
+  
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 152%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 139%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 126%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 139%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 126%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 139%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 126%;
+    }
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 480px){
+  
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 115%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 102%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 89%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 102%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 89%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 102%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 89%;
+    }
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 425px){
+  
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 101%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 87%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 74%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 87%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 74%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 87%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 74%;
+    }
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 415px){
+  
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 97%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 83%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 70%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 83%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 70%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 83%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 70%;
+    }
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 400px){
+  
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 92%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 78%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 65%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 78%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 65%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 78%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 65%;
+    }
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 375px){
+  .nav-item{
+    font-size: 0.8em;
+  }
+
+  /*Animazione Registrazione Clip*/
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 84%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 71%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 58%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 71%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 58%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 71%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 58%;
+    }
+  }
+}
+
+@media screen and (min-width: 348px) and (max-width: 361px){
+  .nav-item{
+    font-size: 0.8em;
+  }
+
+  /*Animazione Registrazione Clip*/
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 79%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 66%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 53%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 66%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 53%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 66%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 53%;
+    }
+  }
+}
+
+@media screen and (min-width: 331px) and (max-width: 347px){
+  .nav-item{
+    font-size: 0.8em;
+  }
+
+  /*Animazione Registrazione Clip*/
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 74%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 61%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 48%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 61%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 48%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 61%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 48%;
+    }
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 330px){
+  .nav-item{
+    font-size: 0.8em;
+  }
+
+  /*Animazione Registrazione Clip*/
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 70%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 57%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 44%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 57%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 44%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 57%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 44%;
+    }
+  }
+}
+
+
+@media screen and (max-width: 320px){
+  .nav-item{
+    font-size: 0.8em;
+  }
+
+  /*Animazione Registrazione Clip*/
+  .wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .staticCircle {
+    position: absolute;
+    top: 50px;
+    left: 67%;
+    border-radius: 50%;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+  }
+  .staticCircle.md {
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 53%;
+  }
+  .staticCircle.lg {
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 40%;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid red;
+    animation: recording 2s infinite linear;
+    -moz-animation: recording 2s infinite linear;
+    -webkit-animation: recording 2s infinite linear;
+  }
+
+  @keyframes recording {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 53%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 40%;
+    }
+  }
+
+  @-moz-keyframes recording {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @-webkit-keyframes recording {
+    0% {
+      width: 70px;
+      height: 70px;
+    }
+    
+    50% {
+      width: 110px;
+      height: 110px;
+      top: 30px;
+      left: 53%;
+    }
+
+    100% {
+      width: 150px;
+      height: 150px;
+      top: 10px;
+      left: 40%;
+    }
+  }
+}

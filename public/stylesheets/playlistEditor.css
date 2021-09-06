@@ -1,0 +1,14 @@
+body{
+    background-image: url(../images/sfondo_editor.jpg);
+    background-size: cover;
+    background-color: #FFFFFF;
+}
+.card{
+    margin-top: 0.5em;
+}
+#vid{
+    font-size: 0.8em;
+}
+#ifNoPlaylist{
+    display: none;
+}

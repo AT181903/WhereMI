@@ -1,0 +1,35 @@
+#positionButton {
+  background-image: url("../images/target_icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#map {
+  cursor: default;
+}
+
+.leaflet-popup-content-wrapper {
+  text-align: center;
+}
+
+#positionButton:hover {
+  background-color: #f4f4f4;
+}
+
+#refreshButton {
+  background-image: url("../images/baseline_refresh_black_18dp.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#refreshButton:hover {
+  background-color: #f4f4f4;
+}
