@@ -1,11 +1,11 @@
 # WhereMI (Where am I?)
-WhereMI è una web app che consente di cercare e caricare guide per luoghi turistici.
+WhereMI is a web app that allows you to search and upload guides for tourist places
 
-## Utente
-Permette ad un turista di scoprire annotazioni audio o testuali sui punti di interesse presso cui si trova e leggerle a schermo oppure sentire una voce sintetica o umana pronunciarle in un auricolare. 
+## User
+It allows a tourist to discover audio or text annotations on the points of interest where he is located and read them on the screen or hear a synthetic or human voice pronounce them
 
 ## Creator
-Permette ad una guida di creare annotazioni audio o testuali e associarle a luoghi.
+It allows a guide to create audio or text annotations and associate them with places
 
-## Licenza
-Il progetto viene rilasciato con GNU General Public License.
+## License
+The project is released with GNU General Public License
