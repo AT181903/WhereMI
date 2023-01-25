@@ -20,7 +20,7 @@
     "favicon": "0.0.2",
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
-    "google-auth-library": "^5.5.1",
+    "google-auth-library": "^8.7.0",
     "http-errors": "~1.6.3",
     "https": "^1.0.0",
     "jquery": "^3.4.1",
